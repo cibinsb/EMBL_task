@@ -12,3 +12,6 @@ class Constants(Enum):
     error = 'error'
     message = 'message'
     min_keyword_count=3
+    limit_retries=5
+    pool_size=5
+

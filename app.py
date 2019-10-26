@@ -10,14 +10,14 @@ from falcon_swagger_ui import register_swaggerui_app
 
 try:
     logger.info("Connecting to Database")
-    database = DataBase()
+    database = DataBase(True)
     logger.info("Connection successful")
 except Exception as ex:
     logger.info("Error " + str(ex))
     raise Exception("Error Couldn't connect to %s Database" % (Constants.database.value))
 
 
-class Home():
+class Home:
     def on_get(self, req, resp):
         logger.info("Sending response")
         resp.status = falcon.HTTP_200

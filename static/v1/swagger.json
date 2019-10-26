@@ -15,7 +15,7 @@
         }
     ],
     "schemes": [
-        "http",
+        "http"
     ],
     "paths": {
         "/search": {
@@ -33,14 +33,14 @@
                         "description": "Gene name",
                         "required": true,
                         "minLength": 3,
-                        "type": "string",
+                        "type": "string"
                     },
                     {
                         "name": "species",
                         "in": "query",
                         "description": "Name of species(Optional)",
                         "required": false,
-                        "type": "string",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -67,19 +67,19 @@
         "GeneData": {
             "type": "object",
             "required": [
-                "name",
+                "name"
             ],
             "properties": {
                 "id": {
-                    "type": "string",
+                    "type": "string"
                 },
                 "name": {
                     "type": "string",
-                    "example": "tbx",
+                    "example": "tbx"
                 },
                 "species": {
-                    "type": "string",
-                },
+                    "type": "string"
+                }
             },
             "xml": {
                 "name": "Gene"
@@ -89,10 +89,10 @@
             "type": "object",
             "properties": {
                 "error": {
-                    "type": "string",
-                },
-            },
+                    "type": "string"
+                }
+            }
 
-        },
-    },
+        }
+    }
 }
