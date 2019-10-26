@@ -6,7 +6,7 @@
         "title": "EMBL search API",
     },
     "host": "localhost:8000",
-    "basePath": "",
+    "basePath": "/api/v1/embl",
     "tags": [
         {
             "name": "Search",
@@ -16,28 +16,28 @@
     ],
     "schemes": [
         "http",
-        "https"
     ],
     "paths": {
-        "/api/v1/embl/search": {
+        "/search": {
             "get": {
                 "tags": [
                     "Search"
                 ],
                 "summary": "Search Gene and species(optional)",
-                "description": "Returns all records",
+                "description": "Returns all records matching gene name and species(optional)",
                 "operationId": "search",
                 "parameters": [
                     {
                         "name": "name",
-                        "in": "path",
+                        "in": "query",
                         "description": "Gene name",
                         "required": true,
+                        "minLength": 3,
                         "type": "string",
                     },
                     {
                         "name": "species",
-                        "in": "path",
+                        "in": "query",
                         "description": "Name of species(Optional)",
                         "required": false,
                         "type": "string",
@@ -51,7 +51,10 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid request"
+                        "description": "Error",
+                      "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
                     },
 
                 },
@@ -72,7 +75,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "example": "tbx"
+                    "example": "tbx",
                 },
                 "species": {
                     "type": "string",
@@ -82,9 +85,14 @@
                 "name": "Gene"
             }
         },
+      "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string",
+                },
+            },
+
+        },
     },
-    "externalDocs": {
-        "description": "Find out more about Swagger",
-        "url": "http://swagger.io"
-    }
 }
