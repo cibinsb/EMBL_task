@@ -54,7 +54,7 @@ class DataBase:
     def reset(self):
         self.disconnect()
         self.connect()
-        self.cursor()
+        self.init_cursor()
 
     def init_cursor(self):
         if not self.cursor or self.cursor.closed:
