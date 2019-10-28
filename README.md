@@ -15,12 +15,12 @@ Run the following commands
 1. docker build -t embl .
 2. docker run -p 80:8080 embl 
 
-The service will start to listen on port <b>80</b>
+The service will start to listen on port <b>80</b> inside the Vagrant machine
 
 Testing
 -------
 
-1. Login to the `app_server` docker container 
+1. Login to the `embl` docker container 
 2. Run the command `python -m unittest test/api_test.py`
 
 
