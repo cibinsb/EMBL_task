@@ -3,14 +3,14 @@
     "info": {
         "description": " Gene and species search  API service on public Ensembl Database.",
         "version": "1.0.3",
-        "title": "EMBL search API",
+        "title": "EMBL search API"
     },
-    "host": "localhost:8000",
     "basePath": "/api/v1/embl",
+    "produces":"application/json",
     "tags": [
         {
             "name": "Search",
-            "description": "search gene and species",
+            "description": "search gene and species"
 
         }
     ],

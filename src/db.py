@@ -36,6 +36,7 @@ class DataBase:
 
     def get_data(self, query,retry_counter = 0) -> []:
         try:
+            logger.info("running query "+query)
             self.cursor.execute(query)
             retry_counter = 0
         except DBError as error:
@@ -44,7 +45,7 @@ class DataBase:
             else:
                 retry_counter += 1
                 logger.info("DB Connection error {}. retrying {}".format(str(error).strip(), retry_counter))
-                time.sleep(1)
+                time.sleep(2)
                 self.reset()
                 self.get_data(query, retry_counter)
         columns = tuple([col[0] for col in self.cursor.description])

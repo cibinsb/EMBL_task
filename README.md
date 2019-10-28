@@ -12,8 +12,8 @@ This is a simple Python/Falcon application intended to provide a working example
 How To start the API service using docker
 ---------------
 Run the following commands 
-1. docker-compose build
-2. docker-compose up
+1. docker build -t embl .
+2. docker run -p 80:8080 embl 
 
 The service will start to listen on port <b>80</b>
 
