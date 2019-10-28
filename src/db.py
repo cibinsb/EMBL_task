@@ -28,7 +28,7 @@ class DataBase:
                     raise error
                 else:
                     retry_counter += 1
-                    logger.info("Connection error {}. reconnecting {}".format(str(error).strip(), retry_counter))
+                    logger.info("DB Connection error {}. reconnecting {}".format(str(error).strip(), retry_counter))
                     time.sleep(5)
                     self.connect(retry_counter)
             except (Exception, DBError) as error:
@@ -43,7 +43,7 @@ class DataBase:
                 raise error
             else:
                 retry_counter += 1
-                logger.info("Connection error {}. retrying {}".format(str(error).strip(), retry_counter))
+                logger.info("DB Connection error {}. retrying {}".format(str(error).strip(), retry_counter))
                 time.sleep(1)
                 self.reset()
                 self.get_data(query, retry_counter)
