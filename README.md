@@ -28,3 +28,7 @@ Making Requests
 ---------------
 
 Please go to `http://localhost:8080/swagger` to find more about the API documentation. 
+
+Todo
+---------------
+ Since its a simple REST API. I have not included GraphQL. 
