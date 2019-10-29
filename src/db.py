@@ -34,10 +34,10 @@ class DataBase:
             except (Exception, DBError) as error:
                 raise error
 
-    def get_data(self, query,retry_counter = 0) -> []:
+    def get_data(self, query,params,retry_counter = 0) -> []:
         try:
             logger.info("running query "+query)
-            self.cursor.execute(query)
+            self.cursor.execute(query,params)
             retry_counter = 0
         except DBError as error:
             if retry_counter >= Constants.limit_retries.value:

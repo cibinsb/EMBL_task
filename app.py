@@ -11,6 +11,7 @@ from falcon_swagger_ui import register_swaggerui_app
 try:
     logger.info("Connecting to Database")
     database = DataBase(True)
+    logger.info(database)
     logger.info("Connection successful")
 except Exception as ex:
     logger.info("Error " + str(ex))

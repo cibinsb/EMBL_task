@@ -13,12 +13,14 @@ class RunQuery:
         species = req.get_param(Constants.species.value, None)
         http_status = falcon.HTTP_400
         if gene_name and len(gene_name) >= Constants.min_keyword_count.value:
-            query = "select  stable_id as id, display_label as name, species  from %s where display_label like '%s'" \
-                    % (Constants.database.value + "." + Constants.table.value, gene_name.lower() + "%")
-            query += " and species = '" + species + "';" if species else ";"
+            query = """select  stable_id as id, display_label as name, species from gene_autocomplete where display_label like %s"""
+            params = (gene_name.lower()+"%",)
+            if species:
+                query+=" and species = %s"
+                params=(gene_name.lower()+"%",species,)
             try:
                 http_status = falcon.HTTP_200
-                response_body = json.dumps(self.database.get_data(query), ensure_ascii=False)
+                response_body = json.dumps(self.database.get_data(query,params), ensure_ascii=False)
             except Exception as exp:
                 logger.info(str(exp))
                 http_status = falcon.HTTP_400
