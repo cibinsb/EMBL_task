@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.11.1
 ADD . /app
 WORKDIR /app
 COPY config/gunicorn_config.py /app
